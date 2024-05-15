@@ -4,12 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        result = False
-        for current_element in nums:
-            current_count = 0
-            for pivot in nums:
-                if pivot == current_element:
-                    current_count  = current_count + 1
-            if current_count >= 2:
-                result = True
-        return result
+        unique_numbers = set()
+
+        for current_number in nums:
+            if current_number in unique_numbers:
+                return True
+            else:
+                unique_numbers.add(current_number)
